@@ -1,4 +1,4 @@
-package com.vitelco.turkcellpoc.model;
+package com.vitelco.turkcellpoc.configuration.log;
 
 import java.util.Date;
 import org.springframework.data.annotation.Id;
@@ -21,8 +21,9 @@ public class Logs {
 	@Id
 	private String id;
 	private Date date;
-	private String level;
-	private String serviceName;
+	private String method;
+	private String path;
+	private String statusCode;
 	private String message;
 	
 }

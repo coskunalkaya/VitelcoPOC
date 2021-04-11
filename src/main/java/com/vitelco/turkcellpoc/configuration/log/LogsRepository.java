@@ -1,7 +1,6 @@
-package com.vitelco.turkcellpoc.repository;
+package com.vitelco.turkcellpoc.configuration.log;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import com.vitelco.turkcellpoc.model.Logs;
 
 public interface LogsRepository extends MongoRepository<Logs, String> {
 }

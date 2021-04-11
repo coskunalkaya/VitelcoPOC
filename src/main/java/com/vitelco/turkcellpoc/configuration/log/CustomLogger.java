@@ -1,9 +1,8 @@
-package com.vitelco.turkcellpoc.configuration;
+package com.vitelco.turkcellpoc.configuration.log;
 
 import java.util.Date;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
-import com.vitelco.turkcellpoc.model.Logs;
 
 @Component
 public class CustomLogger {
@@ -14,10 +13,11 @@ public class CustomLogger {
 		this.mongoTemplate = mongoTemplate;
 	}
 
-	public void info(String serviceName, String message) {
+	public void info(String method,String path, String statusCode,String message) {
 		Logs logs = new Logs();
-		logs.setLevel("INFO");
-		logs.setServiceName(serviceName);
+		logs.setMethod(method);
+		logs.setPath(path);
+		logs.setStatusCode(statusCode);
 		logs.setMessage(message);
 		logs.setDate(new Date());
 		mongoTemplate.insert(logs);
