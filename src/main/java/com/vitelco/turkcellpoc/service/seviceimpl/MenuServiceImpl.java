@@ -9,10 +9,14 @@ import com.vitelco.turkcellpoc.repository.MenuRepository;
 import com.vitelco.turkcellpoc.service.MenuService;
 
 @Service
-public class MenuServiceImpl implements MenuService{
+public class MenuServiceImpl implements MenuService {
 
+	private final MenuRepository menuRepository;
+    
 	@Autowired
-	MenuRepository menuRepository;
+	public MenuServiceImpl(MenuRepository menuRepository) {
+		this.menuRepository = menuRepository;
+	}
 
 	public List<Menu> getMenuList() {
 		List<Menu> menuList = new ArrayList<Menu>();

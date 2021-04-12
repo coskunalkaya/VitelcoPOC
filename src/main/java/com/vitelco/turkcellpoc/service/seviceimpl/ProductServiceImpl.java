@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -15,9 +14,13 @@ import com.vitelco.turkcellpoc.service.ProductService;
 
 @Service
 public class ProductServiceImpl implements ProductService{
-
+	
+	private final ProductRepository productRepository;
+    
 	@Autowired
-	ProductRepository productRepository;
+	public ProductServiceImpl(ProductRepository productRepository) {
+		this.productRepository = productRepository;
+	}
 
 	public List<Product> getProductList() {
 		List<Product> productList = new ArrayList<Product>();
